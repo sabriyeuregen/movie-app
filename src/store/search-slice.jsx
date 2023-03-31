@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { uIActions } from "./ui-slice";
 
 const initialState = {
   results : [],
