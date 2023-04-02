@@ -1,25 +1,40 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios"
+import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   loading: false,
-  movies: [],
-  error: ""
-}
+  data: [],
+  error: "",
+};
 
-export const fetchMovies  =createAsyncThunk("movie/fetchMovies", () => {
-    return axios 
-    .get("")
-    .then((response) => response.data)
-})
+export const fetchMovies = createAsyncThunk("fetchMovies", async () => {
+  return await axios
+    .get(
+      "https://api.themoviedb.org/3/movie/550?api_key=8007da3ba2c47e0304c3a0e70c97a6b8"
+    )
+    .then((response) => response.data);
+});
 
 const movieSlice = createSlice({
- name:"movie",
- initialState: initialState,
- reducers: { //fonksiyonlar buraya
+  name: "movie",
+  initialState: initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchMovies.pending, (state, action) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(fetchMovies.fulfilled, (state, action) => {
+      state.action = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchMovies.rejected, (state, action) => {
+      state.loading = false;
+      state.error = "There is an error!";
+    });
+  },
+});
 
- },
- extraReducers:(builder)=> {
-   builder.addCase(fetchMovies.pending)
- }
-})
+export const movieActions = movieSlice.actions;
+
+export default movieSlice;
