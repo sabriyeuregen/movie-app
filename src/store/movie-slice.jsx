@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -8,11 +8,13 @@ const initialState = {
 };
 
 export const fetchMovies = createAsyncThunk("fetchMovies", async () => {
-  return await axios
-    .get(
-      "https://api.themoviedb.org/3/movie/550?api_key=8007da3ba2c47e0304c3a0e70c97a6b8"
-    )
-    .then((response) => response.data);
+ /* return await fetch(
+    "https://api.themoviedb.org/3/movie/popular?api_key=8007da3ba2c47e0304c3a0e70c97a6b8&page=1"
+  )
+    .then((response) => response.json())
+    .then((response) => response.results);*/
+    const response = await axios.get( "https://api.themoviedb.org/3/movie/popular?api_key=8007da3ba2c47e0304c3a0e70c97a6b8&page=1")
+    return response.results
 });
 
 const movieSlice = createSlice({

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 const MovieSuggestion = () => {
 
-    useSelector();
+  const search  = useSelector((state) => state.searchSlice);
 
   return (
-    <div>MovieSuggestion</div>
+    <div>{console.log(search.isFetching)}</div>
   )
 }
 
