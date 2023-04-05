@@ -9,10 +9,15 @@ const Movies = () => {
   const movie = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchData());
-  }, []);
+  }, [dispatch]);
+
+  const movieList = movie.data.map((movie) =>( 
+    <MovieCart
+      key={movie.id}
+      title={movie.title}
+      image={<img src={movie.poster_path} alt="movie-img"/>} />))
 
   console.log(movie.data);
   return (
@@ -20,7 +25,7 @@ const Movies = () => {
       <h1>MOVİES</h1>
       {movie.loading && "fetching data"}
       {movie.error && movie.error}
-      {movie.data.map((movie) => {<MovieCart key={movie.id} originaltitle={movie.original_title}/>})}
+      {movieList}
     </div>
   );
 };

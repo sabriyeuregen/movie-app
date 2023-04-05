@@ -11,6 +11,7 @@ import {
 import MovieList from "./pages/MovieList/MovieList";
 import MovieDetail from "./components/MovieDetail/MovieDetail";
 import RootLayout from "./pages/RootLayout/RootLayout";
+import Movies from "./components/Movies/Movies";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +24,8 @@ const router = createBrowserRouter(
 
 const App = () => {
   return <div className="App">
-    <RouterProvider router={router}></RouterProvider>
+    {/*<RouterProvider router={router}></RouterProvider>*/}
+  <Movies/>
   </div>;
 };
 
