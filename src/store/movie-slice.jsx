@@ -1,40 +1,39 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 
 const initialState = {
   loading: false,
   data: [],
-  error: "",
+  error: ""
 };
 
-export const fetchMovies = createAsyncThunk("fetchMovies", async () => {
- /* return await fetch(
+export const fetchData = createAsyncThunk("movie/fetchMovies", async () => {
+  return await fetch(
     "https://api.themoviedb.org/3/movie/popular?api_key=8007da3ba2c47e0304c3a0e70c97a6b8&page=1"
   )
     .then((response) => response.json())
-    .then((response) => response.results);*/
-    const response = await axios.get( "https://api.themoviedb.org/3/movie/popular?api_key=8007da3ba2c47e0304c3a0e70c97a6b8&page=1")
-    return response.results
+    .then((response) => response.results.map((movie) => movie));
+ 
+  // .then((response) => response.map((movie) => movie.id))
 });
+
 
 const movieSlice = createSlice({
   name: "movie",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchMovies.pending, (state, action) => {
+    builder.addCase(fetchData.pending, (state, action) => {
       state.loading = true;
-      state.error = "";
     });
-    builder.addCase(fetchMovies.fulfilled, (state, action) => {
-      state.action = action.payload;
+    builder.addCase(fetchData.fulfilled, (state, action) => {
+      state.data = action.payload;
       state.loading = false;
     });
-    builder.addCase(fetchMovies.rejected, (state, action) => {
+    builder.addCase(fetchData.rejected, (state, action) => {
       state.loading = false;
       state.error = "There is an error!";
     });
-  },
+  }
 });
 
 export const movieActions = movieSlice.actions;

@@ -1,7 +1,9 @@
 
-const MovieCart = () => {
+const MovieCart = (props) => {
   return (
-    <div>MovieCart</div>
+    <div>
+      {props.originaltitle}
+    </div>
   )
 }
 
