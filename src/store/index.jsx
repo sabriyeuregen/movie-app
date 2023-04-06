@@ -3,6 +3,6 @@ import searchSlice from "./search-slice";
 import movieSlice from "./movie-slice";
 
 const store = configureStore({
-  reducer: { search: searchSlice.reducer, movie: movieSlice.reducer },
+  reducer: { searchSlice: searchSlice.reducer, movie: movieSlice.reducer }
 });
 export default store;

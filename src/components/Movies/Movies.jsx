@@ -17,7 +17,7 @@ const Movies = () => {
     <MovieCart
       key={movie.id}
       title={movie.title}
-      image={<img src={movie.poster_path} alt="movie-img"/>} />))
+      /*image={<img src={movie.poster_path} alt="movie-img"/>} *//>))
 
   console.log(movie.data);
   return (

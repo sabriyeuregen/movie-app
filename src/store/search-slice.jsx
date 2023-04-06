@@ -10,7 +10,7 @@ const initialState = {
 
 const searchSlice = createSlice({
   name: "searchSlice",
-  initialState: initialState,
+  initialState,
   reducers: {
     searchMovies: (state) => {
       return {

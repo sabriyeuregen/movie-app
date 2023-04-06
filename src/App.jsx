@@ -17,15 +17,15 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout />}>
       <Route path="/" element={<MovieList />} />
-      <Route path="/movie/:id" element={<MovieDetail />} />
+      {/*<Route path="/movie/:id" element={<MovieDetail />} />*/}
+      <Route path="/moviedetail" element={<MovieDetail/>}/>
     </Route>
   )
 );
 
 const App = () => {
   return <div className="App">
-    {/*<RouterProvider router={router}></RouterProvider>*/}
-  <Movies/>
+    <RouterProvider router={router}></RouterProvider>
   </div>;
 };
 

@@ -8,18 +8,14 @@ const SearchMovie = () => {
       return;
     }
 
-    dispatch(
-      searchActions.searchMovies({
-        state: event.target.value,
-      })
-    );
+    dispatch(searchActions.searchMovies(event.target.value));
+    dispatch(searchActions.fetchedSearchMovies(event.target.value));
   };
 
   return (
     <div>
-      <div>
-        <input onChange={inputChangeHandler}></input>
-      </div>
+      <h1>Search Movie</h1>
+      <input onChange={inputChangeHandler}></input>
     </div>
   );
 };
