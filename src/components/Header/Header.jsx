@@ -1,7 +1,11 @@
 import "./Header.scss";
+import SearchMovie from "../SearchMovie/SearchMovie";
 const Header = () => {
   return (
-    <div>Header</div>
+    <div>
+      <div>Logo</div>
+      <SearchMovie/>
+    </div>
   )
 }
 

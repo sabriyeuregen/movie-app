@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  results : [],
+  results : "",
   totalResults: 0,
   page: 0,
   totalPages: 0,
@@ -12,7 +12,7 @@ const searchSlice = createSlice({
   name: "searchSlice",
   initialState,
   reducers: {
-    searchMovies: (state) => {
+    searchMovies: (state,action) => {
       return {
         ...state,
         isFetching: true

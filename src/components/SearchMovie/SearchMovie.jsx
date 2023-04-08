@@ -8,8 +8,10 @@ const SearchMovie = () => {
       return;
     }
 
-    dispatch(searchActions.searchMovies(event.target.value));
-    dispatch(searchActions.fetchedSearchMovies(event.target.value));
+    //dispatch(searchActions.searchMovies(event.target.value));
+    dispatch(
+      searchActions.fetchedSearchMovies({ results: event.target.value })
+    );
   };
 
   return (

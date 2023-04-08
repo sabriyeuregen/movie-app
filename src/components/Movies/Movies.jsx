@@ -19,7 +19,6 @@ const Movies = () => {
       title={movie.title}
       /*image={<img src={movie.poster_path} alt="movie-img"/>} *//>))
 
-  console.log(movie.data);
   return (
     <div>
       <h1>MOVİES</h1>
