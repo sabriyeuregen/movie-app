@@ -1,7 +1,7 @@
 import "./MovieSuggestion.scss";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import MovieCart from "../MovieCart/MovieCart";
+import SuggestionCart from "../SuggestionCart/SuggestionCart";
 const MovieSuggestion = () => {
 
   const [data, setData] = useState("");
@@ -26,7 +26,7 @@ const MovieSuggestion = () => {
   return (
     <div>
         {query.length > 3 && data.map((movie) => (
-        <MovieCart key={movie.id} title={movie.title} />
+        <SuggestionCart key={movie.id} title={movie.title} />
       ))}
     </div>
   )
