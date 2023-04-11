@@ -1,5 +1,4 @@
-import React from 'react'
-
+import "./SuggestionCart.scss"
 const SuggestionCart = () => {
   return (
     <div>SuggestionCart</div>
