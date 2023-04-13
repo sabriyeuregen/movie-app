@@ -1,8 +1,11 @@
-import "./SuggestionCart.scss"
-const SuggestionCart = () => {
+import "./SuggestionCart.scss";
+const SuggestionCart = (props) => {
   return (
-    <div>SuggestionCart</div>
-  )
-}
+    <div>
+      <div>{props.id}</div>
+      <div>{props.title}</div>
+    </div>
+  );
+};
 
 export default SuggestionCart;
