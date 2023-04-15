@@ -11,9 +11,7 @@ export const fetchData = createAsyncThunk("movie/fetchMovies", async () => {
     "https://api.themoviedb.org/3/movie/popular?api_key=8007da3ba2c47e0304c3a0e70c97a6b8&page=1"
   )
     .then((response) => response.json())
-    .then((response) => response.results)//.map((movie) => movie));
- 
-  // .then((response) => response.map((movie) => movie.id))
+    .then((response) => response.results)
 });
 
 
