@@ -1,22 +1,30 @@
 import { useState, useEffect } from "react";
 import MovieCart from "../MovieCart/MovieCart";
+import { useParams } from "react-router-dom";
 const MovieDetail = () => {
-  const [detail, setDetail] = useState("");
 
-  const getMovie = async (id) => {
+  const [ detail, setDetail] = useState("");
+
+  const { id } = useParams();
+
+  const getMovie = async () => {
     const movie = await fetch(
-      `https://api.themoviedb.org/movie/${id}?api_key=8007da3ba2c47e0304c3a0e70c97a6b8&append_to_response=recommendations`
-    )
+      `https://api.themoviedb.org/3/movie/${id}?api_key=8007da3ba2c47e0304c3a0e70c97a6b8`
+      )
       .then((response) => response.json())
       .then((response) => response.results);
-    setDetail(movie);
+      setDetail(movie);
+      console.log(movie+"movie")
   };
 
   useEffect(() => {
-    getMovie(id);
+    getMovie(id ? parseInt(id,10) : 0);
   }, []);
 
-  const movieDetail = detail.map((movie) => (
+  console.log(id)
+  console.log(detail+ "data")
+
+ /* const movieDetail = detail.map((movie) => (
     <MovieCart
       key={movie.id}
       link={
@@ -31,9 +39,9 @@ const MovieDetail = () => {
       }
       title={movie.title}
     />
-  ));
+  ));*/
 
-  return <div>{movieDetail}</div>;
+  return <div>{/*movieDetail*/}</div>;
 };
 
 export default MovieDetail;
