@@ -9,14 +9,12 @@ import {
 } from "react-router-dom";
 
 import MovieList from "./pages/MovieList/MovieList";
-import MovieDetail from "./components/MovieDetail/MovieDetail";
 import RootLayout from "./pages/RootLayout/RootLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout />}>
       <Route path="/" element={<MovieList />} />
-      <Route path="/movie/:id" element={<MovieDetail />} />
     </Route>
   )
 );
