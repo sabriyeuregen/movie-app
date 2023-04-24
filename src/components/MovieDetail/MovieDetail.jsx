@@ -14,33 +14,16 @@ const MovieDetail = () => {
       .then((response) => response.json());
       setDetail(movie);
   };
-  console.log(detail)
+  // const IMAGES_PATH = "https://image.tmdb.org/t/p";
 
   useEffect(() => {
-    getMovie(id ? parseInt(id,10) : 0);
-    
+    getMovie(id);
   }, []);
-
-  const IMAGES_PATH = "https://image.tmdb.org/t/p";
-
- const movieDetail = detail.map((movie) => (
-    <MovieCart
-      key={movie.id}
-      link={
-        movie.poster_path && (
-          <img
-            src={`${IMAGES_PATH}/w300${movie.poster_path}`}
-            alt={movie.title}
-          />
-        )
-      }
-      title={movie.title}
-    />
-  ));
 
   return (
     <div>
-      {detail && movieDetail}
+      {console.log(detail)}
+     
     </div>
   );
 };
